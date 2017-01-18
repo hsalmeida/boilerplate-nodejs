@@ -13,8 +13,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-console.log(firebase.app().name);
-
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
@@ -23,4 +21,5 @@ app.get('/', function (req, res) {
 
 app.listen(80, function () {
   console.log('Listening on port 80');
+  console.log(firebase.app().name);
 });
