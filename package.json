@@ -1,13 +1,17 @@
 {
-  "name": "boilerplate-nodejs",
+  "name": "smartfs-nodejs",
+  "license": "MIT",
+  "author": "s3labs",
+  "private": true,
   "version": "1.0.0",
-  "description": "A boilerplate that demonstrates the Node.js container",
+  "description": "SmartFS Node.js container",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "express": "^4.14.0",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "firebase-tools": "3.2.1"
   }
 }
