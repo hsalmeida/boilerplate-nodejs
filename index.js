@@ -1,17 +1,8 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var firebase = require("firebase");
-var app = express();
 
-var config = {
-    apiKey: "AIzaSyDaGeeXHAy8prgu3cs1AAqyL3VYWPsHyJo",
-    authDomain: "smartdelivery-154417.firebaseapp.com",
-    databaseURL: "https://smartdelivery-154417.firebaseio.com",
-    storageBucket: "smartdelivery-154417.appspot.com",
-    messagingSenderId: "121932600601"
-};
-firebase.initializeApp(config);
+var app = express();
 
 app.use(morgan('combined'));
 
@@ -20,6 +11,10 @@ app.get('/', function (req, res) {
 });
 
 app.listen(80, function () {
-  console.log('Listening on port 80');
-  console.log(firebase.app().name);
+    var firebase = require('./config/db/db');
+    var enter = firebase.database().ref('enterprise');
+    enter.once('value').then(function (snap) {
+        console.log(snap.val().bompreco);
+    });
+    console.log('Listening on port 80');
 });
